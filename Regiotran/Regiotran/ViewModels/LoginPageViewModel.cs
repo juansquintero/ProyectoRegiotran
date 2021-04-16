@@ -129,7 +129,8 @@ namespace Regiotran.ViewModels
                 {
                     //await DisplayAlert("Error", "Ya existe este numero registrado", "OK");
                     await Application.Current.MainPage.DisplayAlert("Error","Este ususario no esta registrado","OK");
-                    Application.Current.MainPage = new MasterPage();                   
+                    
+                    return;                
                 }
                 else
                 {
