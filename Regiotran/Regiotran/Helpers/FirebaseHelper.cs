@@ -27,6 +27,14 @@ namespace Regiotran.Helpers
                 }).ToList();
         }
 
+        public async Task<Login> Login(string number, string password)
+        {
+            var allPersons = await GetAllPersons();
+            await firebase
+                .Child(ChildName)
+                .OnceAsync<Login>();
+            return allPersons.FirstOrDefault(a => a.Number == number && a.Password == password);
+        }
         public async Task AddPerson(string name,string password, string phone)
         {
             await firebase
