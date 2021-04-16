@@ -128,11 +128,13 @@ namespace Regiotran.ViewModels
                 if (user != null)
                 {
                     //await DisplayAlert("Error", "Ya existe este numero registrado", "OK");
-                    await Application.Current.MainPage.DisplayAlert("Error","Este ususario no esta registrado","OK");
-                    Application.Current.MainPage = new MasterPage();                   
+                    await Application.Current.MainPage.DisplayAlert("Bienvenido", ":)" , "OK");
+                    Application.Current.MainPage = new ProfilePage();
+                    
                 }
                 else
                 {
+                    await Application.Current.MainPage.DisplayAlert("Error", "Este ususario no esta registrado", "OK");
                     Application.Current.MainPage = new LoginPage();
                 }
                 await fireBaseHelper.Login(Number.Value, Password.Value);                
