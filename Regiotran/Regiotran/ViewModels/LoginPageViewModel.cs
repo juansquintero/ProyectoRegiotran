@@ -122,6 +122,9 @@ namespace Regiotran.ViewModels
         {
             if (this.AreFieldsValid())
             {
+                
+                
+                
                 var res = await DataBase.GetNumberLogin(Number.Value, Password.Value);
                 if (res != null)
                 {
