@@ -20,8 +20,7 @@ namespace Regiotran.ViewModels
         /// Initializes a new instance for the <see cref="ProfileViewModel" /> class
         /// </summary>
         /// 
-        public Login Login { get; set; }
-        public event PropertyChangedEventHandler PropertyChanged;
+        public Login Login { get; set; }        
         Login data = JsonConvert.DeserializeObject<Login>(Settings.GeneralSettings);
         public ProfilePageViewModel()
         {
@@ -36,13 +35,7 @@ namespace Regiotran.ViewModels
         }
 
         readonly FirebaseHelper fireBaseHelper = new FirebaseHelper();
-
-        
-        
-              
-
-
-        
+                                     
         #endregion
 
         #region Command
@@ -64,13 +57,7 @@ namespace Regiotran.ViewModels
 
         #endregion
 
-        #region Methods
-
-        
-
-        
-
-
+        #region Methods            
 
         /// <summary>
         /// Invoked when the edit button is clicked.
@@ -105,11 +92,6 @@ namespace Regiotran.ViewModels
             (obj as Grid).BackgroundColor = Color.Transparent;
         }
 
-        #endregion
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        #endregion        
     }
 }
