@@ -42,22 +42,22 @@ namespace Regiotran.Helpers
                 .PostAsync(new Login() { Id = Guid.NewGuid(), Name = name,Password = password, Number = phone });
         }
 
-        public async Task<Login> GetPerson(Guid id)
-        {
-            var allPersons = await GetAllPersons();
-            await firebase
-                .Child(ChildName)
-                .OnceAsync<Login>();
-            return allPersons.FirstOrDefault(a => a.Id == id);
-        }
+        //public async Task<Login> GetPerson(Guid id)
+        //{
+        //    var allPersons = await GetAllPersons();
+        //    await firebase
+        //        .Child(ChildName)
+        //        .OnceAsync<Login>();
+        //    return allPersons.FirstOrDefault(a => a.Id == id);
+        //}
 
-        public async Task<Login> GetPerson(string name)
+        public async Task<Login> GetNumber(string number)
         {
             var allPersons = await GetAllPersons();
             await firebase
                 .Child(ChildName)
                 .OnceAsync<Login>();
-            return allPersons.FirstOrDefault(a => a.Name == name);
+            return allPersons.FirstOrDefault(a => a.Number == number);
         }
 
         public async Task UpdatePerson(Guid personId, string name, string phone)

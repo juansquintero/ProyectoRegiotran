@@ -154,17 +154,18 @@ namespace Regiotran.ViewModels
                 //await DataBase.AddData(Name.Value,"Test",Number.Value,Password.Item1.ToString());
                 //Application.Current.MainPage = new LoginPage();
 
-                var user = await fireBaseHelper.GetPerson(Number.Value);
-                if (user != null)
+                var user = await fireBaseHelper.GetNumber(Number.Value);
+                if (user != null && Number.Value == user.Number)
                 {
                     await Application.Current.MainPage.DisplayAlert("Error", "Ya existe este numero registrado", "OK");
-                    Application.Current.MainPage = new SignUpPage();
+                    return;
                 }
-
-                await fireBaseHelper.AddPerson(Name.Value, Password.Item1.ToString(), Number.Value);
-                await Application.Current.MainPage.DisplayAlert("Exito", "El usuario ha sido registrado", "OK");
-                Application.Current.MainPage = new LoginPage();
-
+                else
+                {
+                    await fireBaseHelper.AddPerson(Name.Value, Password.Item1.ToString(), Number.Value);
+                    await Application.Current.MainPage.DisplayAlert("Exito", "El usuario ha sido registrado", "OK");
+                    Application.Current.MainPage = new LoginPage();
+                }               
             }
         }
 
