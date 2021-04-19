@@ -1,4 +1,6 @@
-﻿using Regiotran.Helpers;
+﻿using Newtonsoft.Json;
+using Regiotran.Helpers;
+using Regiotran.Models;
 using Regiotran.Services;
 using Regiotran.Validators;
 using Regiotran.Validators.Rules;
@@ -128,9 +130,19 @@ namespace Regiotran.ViewModels
                 if (user != null)
                 {
                     //await DisplayAlert("Error", "Ya existe este numero registrado", "OK");
-                    await Application.Current.MainPage.DisplayAlert("Bienvenido", ":)" , "OK");
-                    Application.Current.MainPage = new ProfilePage();
+                    await Application.Current.MainPage.DisplayAlert("Bienvenido", " " , "OK");
                     
+                    Login data = new Login
+                    {
+                        Id = user.Id,
+                        Name = user.Name,
+                        Number = user.Number,
+                        Password = user.Password,
+                        Tickets = user.Tickets
+                    };
+                    string stringData = JsonConvert.SerializeObject(data);
+                    Settings.GeneralSettings = stringData;
+                    Application.Current.MainPage = new ProfilePage();
                 }
                 else
                 {

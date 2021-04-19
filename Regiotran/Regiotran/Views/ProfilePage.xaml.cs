@@ -1,4 +1,8 @@
-﻿using Xamarin.Forms.Internals;
+﻿using Newtonsoft.Json;
+using Regiotran.Helpers;
+using Regiotran.Models;
+using Regiotran.ViewModels;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace Regiotran.Views
@@ -13,10 +17,13 @@ namespace Regiotran.Views
         /// <summary>
         /// Initializes a new instance of the <see cref="ProfilePage" /> class.
         /// </summary>
+        ///         
         public ProfilePage()
         {
             this.InitializeComponent();
-            this.ProfileImage.Source = App.ImageServerPath + "ProfileImage11.png";
+            this.ProfileImage.Source = App.ImageServerPath + "ProfileImage11.png";           
+            BindingContext = new ProfilePageViewModel();
+            
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using Regiotran.Helpers;
+using Regiotran.Models;
+using System.ComponentModel;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
@@ -8,20 +12,37 @@ namespace Regiotran.ViewModels
     /// ViewModel for profile page
     /// </summary>
     [Preserve(AllMembers = true)]
-    public class ProfilePageViewModel : BaseViewModel
+    public class ProfilePageViewModel : BaseViewModel, INotifyPropertyChanged
     {
         #region Constructor
 
         /// <summary>
         /// Initializes a new instance for the <see cref="ProfileViewModel" /> class
         /// </summary>
+        /// 
+        public Login Login { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        Login data = JsonConvert.DeserializeObject<Login>(Settings.GeneralSettings);
         public ProfilePageViewModel()
         {
             this.EditCommand = new Command(this.EditButtonClicked);
             this.AvailableCommand = new Command(this.AvailableStatusClicked);
             this.NotificationCommand = new Command(this.NotificationOptionClicked);
+            Login = new Login
+            {
+                Name = data.Name,
+                Number = data.Number,
+            };
         }
 
+        readonly FirebaseHelper fireBaseHelper = new FirebaseHelper();
+
+        
+        
+              
+
+
+        
         #endregion
 
         #region Command
@@ -44,6 +65,12 @@ namespace Regiotran.ViewModels
         #endregion
 
         #region Methods
+
+        
+
+        
+
+
 
         /// <summary>
         /// Invoked when the edit button is clicked.
@@ -79,5 +106,10 @@ namespace Regiotran.ViewModels
         }
 
         #endregion
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
