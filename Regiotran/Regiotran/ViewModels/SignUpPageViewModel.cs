@@ -157,8 +157,8 @@ namespace Regiotran.ViewModels
                 var user = await fireBaseHelper.GetPerson(Number.Value);
                 if (user != null)
                 {
-                    //await DisplayAlert("Error", "Ya existe este numero registrado", "OK");
-                    return;
+                    await Application.Current.MainPage.DisplayAlert("Error", "Ya existe este numero registrado", "OK");
+                    Application.Current.MainPage = new SignUpPage();
                 }
 
                 await fireBaseHelper.AddPerson(Name.Value, Password.Item1.ToString(), Number.Value);
