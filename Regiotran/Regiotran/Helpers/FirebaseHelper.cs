@@ -35,11 +35,11 @@ namespace Regiotran.Helpers
                 .OnceAsync<Login>();
             return allPersons.FirstOrDefault(a => a.Number == number && a.Password == password);
         }
-        public async Task AddPerson(string name,string password, string phone)
+        public async Task AddPerson(string number, string name,string password, string tickets)
         {
             await firebase
                 .Child(ChildName)
-                .PostAsync(new Login() { Id = Guid.NewGuid(), Name = name,Password = password, Number = phone });
+                .PostAsync(new Login() { Id = Guid.NewGuid(), Number = number, Name = name, Password = password, Tickets = tickets });
         }
 
         //public async Task<Login> GetPerson(Guid id)

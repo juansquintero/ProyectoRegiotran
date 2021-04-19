@@ -162,7 +162,7 @@ namespace Regiotran.ViewModels
                 }
                 else
                 {
-                    await fireBaseHelper.AddPerson(Name.Value, Password.Item1.ToString(), Number.Value);
+                    await fireBaseHelper.AddPerson(Number.Value, Name.Value, Password.Item1.ToString(), "0");
                     await Application.Current.MainPage.DisplayAlert("Exito", "El usuario ha sido registrado", "OK");
                     Application.Current.MainPage = new LoginPage();
                 }               
