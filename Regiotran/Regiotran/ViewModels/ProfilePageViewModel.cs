@@ -27,6 +27,7 @@ namespace Regiotran.ViewModels
             this.EditCommand = new Command(this.EditButtonClicked);
             this.AvailableCommand = new Command(this.AvailableStatusClicked);
             this.NotificationCommand = new Command(this.NotificationOptionClicked);
+            this.QRCommand = new Command(this.QRCommandClicked);
             Login = new Login
             {
                 Name = data.Name,
@@ -54,6 +55,7 @@ namespace Regiotran.ViewModels
         /// Gets or sets the command that is executed when the notification option is clicked.
         /// </summary>
         public Command NotificationCommand { get; set; }
+        public Command QRCommand { get; set; }
 
         #endregion
 
@@ -92,6 +94,13 @@ namespace Regiotran.ViewModels
             (obj as Grid).BackgroundColor = Color.Transparent;
         }
 
-        #endregion        
+        private async void QRCommandClicked(object obj)
+        {
+            Application.Current.Resources.TryGetValue("Gray-100", out var retVal);
+            (obj as Grid).BackgroundColor = (Color)retVal;
+            await Task.Delay(100).ConfigureAwait(true);
+            (obj as Grid).BackgroundColor = Color.Transparent;
+        }
+        #endregion
     }
 }

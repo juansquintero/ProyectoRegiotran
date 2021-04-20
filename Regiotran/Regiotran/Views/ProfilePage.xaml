@@ -82,14 +82,8 @@
                     Style="{StaticResource TitleLabelStyle}"                    
                     Text="{Binding Login.Name}"
                     VerticalOptions="Center" />
-
-                <!--  Grid for available label and navigation icon  -->
-                
-
-                <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
-
+                                
                 <!--  Grid for mail id label and icon  -->
-
 
                 <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
 
@@ -111,6 +105,41 @@
                         Style="{StaticResource TitleLabelStyle}"
                         Text="{Binding Login.Number}"
                         VerticalOptions="Center" />
+
+                </Grid>
+
+
+                <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
+
+                <!--  Grid for notification label and navigation icon  -->
+                <Grid
+                    x:Name="QRGrid"
+                    Padding="16"
+                    ColumnDefinitions="Auto, *, Auto"
+                    ColumnSpacing="16">
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding QRCommand}" CommandParameter="{x:Reference NotificationGrid}" />
+                    </Grid.GestureRecognizers>
+
+                    <Label
+                        Grid.Column="0"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Cart}" />
+
+                    <Label
+                        Grid.Column="1"
+                        FontFamily="Montserrat-Medium"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource TitleLabelStyle}"
+                        Text="Pago de tiquetes"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        Grid.Column="2"
+                        HorizontalOptions="End"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Next}" />
 
                 </Grid>
 
