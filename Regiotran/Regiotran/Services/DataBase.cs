@@ -23,15 +23,15 @@ namespace Regiotran.Services
             await db.CreateTableAsync<Login>();
         }
 
-        public static async Task AddData(string name, string lastname, string number, string password)
+        public static async Task AddData(string name, string number, string password)
         {
             await Init();
             var database = new Login
             {
-                Name = name,
-                Lastname = lastname,
+                Name = name,                
                 Number = number,
-                Password = password
+                Password = password,
+                Tickets = "0"
             };
             var id = await db.InsertAsync(database);
         }
