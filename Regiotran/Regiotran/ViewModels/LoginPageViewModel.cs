@@ -1,4 +1,7 @@
-﻿using Regiotran.Services;
+﻿using Newtonsoft.Json;
+using Regiotran.Helpers;
+using Regiotran.Models;
+using Regiotran.Services;
 using Regiotran.Validators;
 using Regiotran.Validators.Rules;
 using Regiotran.Views;
@@ -16,6 +19,7 @@ namespace Regiotran.ViewModels
         #region Fields
 
         private ValidatableObject<string> password;
+        readonly FirebaseHelper fireBaseHelper = new FirebaseHelper();
 
         #endregion Fields
 
@@ -122,15 +126,30 @@ namespace Regiotran.ViewModels
         {
             if (this.AreFieldsValid())
             {
-                var res = await DataBase.GetNumberLogin(Number.Value, Password.Value);
-                if (res != null)
+                var user = await fireBaseHelper.Login(Number.Value, Password.Value); 
+                if (user != null)
                 {
-                    Application.Current.MainPage = new MasterPage();
+                    //await DisplayAlert("Error", "Ya existe este numero registrado", "OK");
+                    await Application.Current.MainPage.DisplayAlert("Bienvenido", " " , "OK");
+                    
+                    Login data = new Login
+                    {
+                        Id = user.Id,
+                        Name = user.Name,
+                        Number = user.Number,
+                        Password = user.Password,
+                        Tickets = user.Tickets
+                    };
+                    string stringData = JsonConvert.SerializeObject(data);
+                    Settings.GeneralSettings = stringData;
+                    Application.Current.MainPage = new ProfilePage();
                 }
                 else
                 {
+                    await Application.Current.MainPage.DisplayAlert("Error", "Este ususario no esta registrado", "OK");
                     Application.Current.MainPage = new LoginPage();
                 }
+                await fireBaseHelper.Login(Number.Value, Password.Value);                
             }
         }
 

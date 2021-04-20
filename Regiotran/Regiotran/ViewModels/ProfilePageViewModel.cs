@@ -101,7 +101,6 @@ namespace Regiotran.ViewModels
             (obj as Grid).BackgroundColor = (Color)retVal;
             await Task.Delay(100).ConfigureAwait(true);
             (obj as Grid).BackgroundColor = Color.Transparent;
-
             Application.Current.MainPage = new QRMakerPage();
         }
         #endregion

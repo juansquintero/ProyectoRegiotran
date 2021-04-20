@@ -1,9 +1,11 @@
-﻿using Regiotran.Services;
+﻿using Regiotran.Helpers;
+using Regiotran.Services;
 using Regiotran.Validators;
 using Regiotran.Validators.Rules;
 using Regiotran.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using Regiotran.Models;
 
 namespace Regiotran.ViewModels
 {
@@ -18,6 +20,8 @@ namespace Regiotran.ViewModels
         private ValidatableObject<string> name;
 
         private ValidatablePair<string> password;
+
+        readonly FirebaseHelper fireBaseHelper = new FirebaseHelper();
 
         #endregion
 
@@ -147,8 +151,21 @@ namespace Regiotran.ViewModels
             if (this.AreFieldsValid())
             {
                 // Do something
-                await DataBase.AddData(Name.Value,"Test",Number.Value,Password.Item1.ToString());
-                Application.Current.MainPage = new LoginPage();
+                //await DataBase.AddData(Name.Value,"Test",Number.Value,Password.Item1.ToString());
+                //Application.Current.MainPage = new LoginPage();
+
+                var user = await fireBaseHelper.GetNumber(Number.Value);
+                if (user != null && Number.Value == user.Number)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Error", "Ya existe este numero registrado", "OK");
+                    return;
+                }
+                else
+                {
+                    await fireBaseHelper.AddPerson(Number.Value, Name.Value, Password.Item1.ToString(), "0");
+                    await Application.Current.MainPage.DisplayAlert("Exito", "El usuario ha sido registrado", "OK");
+                    Application.Current.MainPage = new LoginPage();
+                }               
             }
         }
 
