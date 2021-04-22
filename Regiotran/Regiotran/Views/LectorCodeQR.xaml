@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Regiotran.Views.LectorCodeQR">
+  <ContentView.Content>
+      <StackLayout>
+          <Label Text="Lector codigo QR" 
+                 HorizontalOptions="Center"
+                 VerticalOptions="CenterAndExpand" />
+            <Button x:Name="btnScannerQR" Text="Lectura Qr" Clicked="btnScannerQR_Clicked"/>
+            <Entry x:Name="txtResultado" Placeholder="Resultado lectura QR: "/>
+
+
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>
