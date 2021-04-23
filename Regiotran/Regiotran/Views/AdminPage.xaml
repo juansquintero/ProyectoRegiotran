@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Regiotran.Views.AdminPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:helper="clr-namespace:Regiotran.Helpers"
+    BackgroundColor="{DynamicResource Gray-Bg}"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="0">
+
+                <!--  profile view  -->
+                <Grid
+                    Padding="16,24,16,8"
+                    BackgroundColor="{DynamicResource Gray-Bg}"
+                    ColumnDefinitions="Auto, *"
+                    ColumnSpacing="8"
+                    RowDefinitions="*, *"
+                    RowSpacing="2">
+
+                    <!--  Rounded Profile Image  -->
+                    <border:SfBorder
+                        Grid.RowSpan="2"
+                        BorderWidth="0"
+                        CornerRadius="24"
+                        Style="{StaticResource ProfileBorderStyle}">
+                        <Image
+                            BackgroundColor="{DynamicResource Gray-200}"
+                            HeightRequest="48"
+                            WidthRequest="48">
+                            <Image.Source>
+                                <UriImageSource
+                                    CacheValidity="14"
+                                    CachingEnabled="true"
+                                    Uri="{Binding ProfileImage}" />
+                            </Image.Source>
+                        </Image>
+                    </border:SfBorder>
+
+                    <!--  Profile Name  -->
+                    <Label
+                        Grid.Column="1"
+                        Margin="0,4,0,0"
+                        FontSize="14"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource TitleLabelStyle}"
+                        Text="{Binding Login.Name}" />
+
+                    <!--  Number  -->
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="12"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource DescriptionLabelStyle}"
+                        Text="{Binding Login.Number}" />
+                </Grid>
+
+                <BoxView Margin="0,0,0,8" Style="{StaticResource HorizontalSeparatorStyle}" />
+
+                <!--  Grid for tickets Generator  -->
+                <Grid
+                    x:Name="HomeGrid"
+                    BackgroundColor="{DynamicResource Gray-Bg}"
+                    ColumnDefinitions="Auto, *">
+
+                    <Label
+                        Grid.Column="0"
+                        helper:RTLHelper.Margin="16, 0, 8, 0"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Camera}"
+                        TextColor="{DynamicResource PrimaryColor}" />
+
+                    <Label
+                        Grid.Column="1"
+                        Margin="0,14"
+                        FontSize="14"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource TitleLabelStyle}"
+                        Text="Escanear Tiquete"
+                        TextColor="{DynamicResource Gray-Black}" />
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding HomeCommand}" CommandParameter="{x:Reference HomeGrid}" />
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+                
+                <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
+                
+                <!--  Grid for tickets Generator  -->
+                <Grid
+                    x:Name="HomeGrid"
+                    BackgroundColor="{DynamicResource Gray-Bg}"
+                    ColumnDefinitions="Auto, *">
+
+                    <Label
+                        Grid.Column="0"
+                        helper:RTLHelper.Margin="16, 0, 8, 0"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Bookmark}"
+                        TextColor="{DynamicResource PrimaryColor}" />
+
+                    <Label
+                        Grid.Column="1"
+                        Margin="0,14"
+                        FontSize="14"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource TitleLabelStyle}"
+                        Text="Generar Tiquete"
+                        TextColor="{DynamicResource Gray-Black}" />
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding HomeCommand}" CommandParameter="{x:Reference HomeGrid}" />
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+                <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
+
+                <!--  Grid for Edit User  -->
+                <Grid
+                    x:Name="InterestsGrid"
+                    BackgroundColor="{DynamicResource Gray-Bg}"
+                    ColumnDefinitions="Auto, *">
+
+                    <Label
+                        Grid.Column="0"
+                        helper:RTLHelper.Margin="16, 0, 8, 0"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Account}" 
+                        TextColor="{StaticResource PrimaryColor}"/>
+
+                    <Label
+                        Grid.Column="1"
+                        Margin="0,14"
+                        FontSize="14"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource TitleLabelStyle}"
+                        Text="Editar Usuarios" />
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding InterestsCommand}" CommandParameter="{x:Reference InterestsGrid}" />
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+                <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
+
+                <!--  Grid for bookmark label and icon  -->
+                <Grid
+                    x:Name="BookmarkGrid"
+                    BackgroundColor="{DynamicResource Gray-Bg}"
+                    ColumnDefinitions="Auto, *">
+
+                    <Label
+                        Grid.Column="0"
+                        helper:RTLHelper.Margin="16, 0, 8, 0"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource FileExplorer}" 
+                        TextColor="{StaticResource PrimaryColor}"/>
+
+                    <Label
+                        Grid.Column="1"
+                        Margin="0,14"
+                        FontSize="14"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource TitleLabelStyle}"
+                        Text="Tiquetes Vendidos" />
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BookmarkCommand}" CommandParameter="{x:Reference BookmarkGrid}" />
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+                <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
+
+                <!--  Grid for notifications  -->
+                <Grid
+                    x:Name="ActivityGrid"
+                    BackgroundColor="{DynamicResource Gray-Bg}"
+                    ColumnDefinitions="Auto, *">
+
+                    <Label
+                        Grid.Column="0"
+                        helper:RTLHelper.Margin="16, 0, 8, 0"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Notification}" 
+                        TextColor="{StaticResource PrimaryColor}"/>
+
+                    <Label
+                        Grid.Column="1"
+                        Margin="0,14"
+                        FontSize="14"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource TitleLabelStyle}"
+                        Text="Notificaciones" />
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ActivityCommand}" CommandParameter="{x:Reference ActivityGrid}" />
+                    </Grid.GestureRecognizers>
+
+                </Grid>
+
+                <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
+
+                
+
+                <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

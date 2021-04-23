@@ -142,7 +142,7 @@ namespace Regiotran.ViewModels
                     };
                     string stringData = JsonConvert.SerializeObject(data);
                     Settings.GeneralSettings = stringData;
-                    Application.Current.MainPage = new ProfilePage();
+                    Application.Current.MainPage = new AdminPage();
                 }
                 else
                 {
