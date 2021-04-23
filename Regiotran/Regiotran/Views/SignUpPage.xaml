@@ -10,8 +10,11 @@
     xmlns:converter="clr-namespace:Regiotran.Converters"
     xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
     xmlns:local="clr-namespace:Regiotran.Views"
+    xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+    xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+    xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
     xmlns:viewModel="clr-namespace:Regiotran.ViewModels"
-    Title="Sign Up"
+    Title="Registro"
     BackgroundColor="{DynamicResource Gray-200}"
     NavigationPage.HasNavigationBar="False">
 
@@ -109,6 +112,32 @@
 
                         <!--  Entry to get email ID from user  -->
                         <local:SimpleNumberEntry />
+                        
+                        <StackLayout>
+                            <border:SfBorder
+                                BackgroundColor="{DynamicResource Gray-Bg}"
+                                BorderColor="{Binding Source={x:Reference NameEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                                Style="{StaticResource LoginFormBorderlessEntryBorderStyle}">
+                                <Grid ColumnDefinitions="*, Auto">
+
+                                    <control:BorderlessEntry
+                                        x:Name="AdminCodeEntry"
+                                        Margin="15,0"
+                                        HeightRequest="40"
+                                        Placeholder="Codigo Interno (No es obligatorio)"
+                                        Style="{StaticResource BorderlessEntryStyle}"
+                                        Text="{Binding AdminCode.Value}">
+                                    </control:BorderlessEntry>
+
+                                    <!--  Label to display error icon  -->
+                                    <Label
+                                        Grid.Column="1"
+                                        IsVisible="{Binding Path=IsVisible, Source={x:Reference NameValidationLabel}}"
+                                        Style="{StaticResource ErrorIconLabelStyle}"
+                                        Text="{StaticResource Error}" />
+                                </Grid>
+                            </border:SfBorder>
+                        </StackLayout>
 
                         <StackLayout>
                             <!--  Entry to get password from user  -->

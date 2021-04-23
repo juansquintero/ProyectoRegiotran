@@ -1,3 +1,4 @@
+using Syncfusion.XForms.Pickers.iOS;
 using Syncfusion.SfRotator.XForms.iOS;
 using Syncfusion.XForms.iOS.Cards;
 using Syncfusion.SfRating.XForms.iOS;
@@ -33,6 +34,7 @@ namespace Regiotran.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            SfDatePickerRenderer.Init();
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             Core.Init();
             SfRotatorRenderer.Init();

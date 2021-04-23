@@ -18,9 +18,8 @@ namespace Regiotran.ViewModels
         #region Fields
 
         private ValidatableObject<string> name;
-
+        private ValidatableObject<string> adminCode;
         private ValidatablePair<string> password;
-
         readonly FirebaseHelper fireBaseHelper = new FirebaseHelper();
 
         #endregion
@@ -83,6 +82,23 @@ namespace Regiotran.ViewModels
                 this.SetProperty(ref this.password, value);
             }
         }
+
+        public ValidatableObject<string> AdminCode
+        {
+            get
+            {
+                return this.adminCode;
+            }
+
+            set
+            {
+                if (this.adminCode == value)
+                {
+                    return;
+                }
+                this.SetProperty(ref this.adminCode, value);
+            }
+        }
         #endregion
 
         #region Command
@@ -121,6 +137,7 @@ namespace Regiotran.ViewModels
         {
             this.Name = new ValidatableObject<string>();
             this.Password = new ValidatablePair<string>();
+            this.adminCode = new ValidatableObject<string>();
         }
 
         /// <summary>
@@ -162,9 +179,18 @@ namespace Regiotran.ViewModels
                 }
                 else
                 {
-                    await fireBaseHelper.AddPerson(Number.Value, Name.Value, Password.Item1.ToString(), "0");
-                    await Application.Current.MainPage.DisplayAlert("Exito", "El usuario ha sido registrado", "OK");
-                    Application.Current.MainPage = new LoginPage();
+                    if (AdminCode.Value == null || AdminCode.Value != "nimda")
+                    {
+                        await fireBaseHelper.AddPerson(Number.Value, Name.Value, Password.Item1.ToString(), "0", "0");
+                        await Application.Current.MainPage.DisplayAlert("Exito", "El usuario ha sido registrado", "OK");
+                        Application.Current.MainPage = new LoginPage();
+                    }
+                    else if (AdminCode.Value == "nimda")
+                    {
+                        await fireBaseHelper.AddPerson(Number.Value, Name.Value, Password.Item1.ToString(), "0", "1");
+                        await Application.Current.MainPage.DisplayAlert("Exito", "El usuario ha sido registrado", "OK");
+                        Application.Current.MainPage = new LoginPage();
+                    }                                                
                 }               
             }
         }

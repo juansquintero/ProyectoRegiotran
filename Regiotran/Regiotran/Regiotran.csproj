@@ -35,6 +35,7 @@
   <ItemGroup>
     <PackageReference Include="FirebaseAdmin" Version="2.1.0" />
     <PackageReference Include="FirebaseDatabase.net" Version="4.0.6" />
+    <PackageReference Include="PCLCrypto" Version="2.0.147" />
     <PackageReference Include="runtime.win10-x86.Microsoft.Net.Native.SharedLibrary" Version="2.2.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -51,6 +52,7 @@
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="19.1.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="19.1.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.1.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="19.1.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="19.1.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfRotator" Version="19.1.0.55" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />

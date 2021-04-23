@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using CryptoForms;
+using Newtonsoft.Json;
 using Regiotran.Helpers;
 using Regiotran.Models;
 using Regiotran.ViewModels;
@@ -24,6 +25,9 @@ namespace Regiotran.Views
         /// 
         public Login Login { get; set; }
         public string qrData {get; set; }
+        public string qrDataCrypt { get; set; }
+        public struct bytes { };
+        
 
         
         public QRMakerPage()
@@ -41,6 +45,9 @@ namespace Regiotran.Views
             };
 
             qrData = JsonConvert.SerializeObject(qr);
+            var pass = "patitofeo";
+            var salt = Crypto.CreateSalt(16);
+            var bytes1 = Crypto.EncryptAes(qrData, pass, salt);
 
         }
 

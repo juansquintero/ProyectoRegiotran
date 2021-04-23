@@ -1,3 +1,4 @@
+using Syncfusion.XForms.Pickers.UWP;
 using Syncfusion.SfRotator.XForms.UWP;
 using Syncfusion.XForms.UWP.Cards;
 using System.Reflection;
@@ -77,7 +78,8 @@ namespace Regiotran.UWP
                     typeof(SfTextInputLayoutRenderer).GetTypeInfo().Assembly,
                     typeof(SfComboBoxRenderer).GetTypeInfo().Assembly,
                     typeof(SfCardViewRenderer).GetTypeInfo().Assembly,
-                    typeof(SfRotatorRenderer).GetTypeInfo().Assembly
+                    typeof(SfRotatorRenderer).GetTypeInfo().Assembly,
+                    typeof(SfDatePickerRenderer).GetTypeInfo().Assembly
                 };
                 Xamarin.Forms.Forms.Init(e, assembliesToInclude);
 

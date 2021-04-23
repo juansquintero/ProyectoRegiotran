@@ -127,7 +127,7 @@ namespace Regiotran.ViewModels
             if (this.AreFieldsValid())
             {
                 var user = await fireBaseHelper.Login(Number.Value, Password.Value); 
-                if (user != null)
+                if (user != null && user.Rol != "nimda")
                 {
                     //await DisplayAlert("Error", "Ya existe este numero registrado", "OK");
                     await Application.Current.MainPage.DisplayAlert("Bienvenido", " " , "OK");
@@ -138,11 +138,29 @@ namespace Regiotran.ViewModels
                         Name = user.Name,
                         Number = user.Number,
                         Password = user.Password,
-                        Tickets = user.Tickets
+                        Tickets = user.Tickets,
+                        Rol = user.Rol
                     };
                     string stringData = JsonConvert.SerializeObject(data);
                     Settings.GeneralSettings = stringData;
                     Application.Current.MainPage = new ProfilePage();
+                }
+                else if (user != null && user.Rol == "nimda" )
+                {
+                    await Application.Current.MainPage.DisplayAlert("Bienvenido", " ", "OK");
+
+                    Login data = new Login
+                    {
+                        Id = user.Id,
+                        Name = user.Name,
+                        Number = user.Number,
+                        Password = user.Password,
+                        Tickets = user.Tickets,
+                        Rol = user.Rol
+                    };
+                    string stringData = JsonConvert.SerializeObject(data);
+                    Settings.GeneralSettings = stringData;
+                    Application.Current.MainPage = new AdminPage();
                 }
                 else
                 {
