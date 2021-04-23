@@ -93,7 +93,7 @@
                 
                 <!--  Grid for tickets Generator  -->
                 <Grid
-                    x:Name="HomeGrid"
+                    x:Name="HomeGrid2"
                     BackgroundColor="{DynamicResource Gray-Bg}"
                     ColumnDefinitions="Auto, *">
 
