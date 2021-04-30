@@ -7,6 +7,7 @@ using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using Regiotran.Views;
 
 namespace Regiotran.ViewModels
 {
@@ -36,6 +37,7 @@ namespace Regiotran.ViewModels
         private Command activityCommand;
 
         private Command profileCommand;
+        private Command logOffCommand;
 
         #endregion
 
@@ -184,6 +186,14 @@ namespace Regiotran.ViewModels
             }
         }
 
+        public Command LogOff
+        {
+            get
+            {
+                return this.logOffCommand ?? (this.logOffCommand = new Command(this.LogOffCommandClicked));
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -234,6 +244,8 @@ namespace Regiotran.ViewModels
         private void HomeButtonClicked(object obj)
         {
             UpdateSelectedItemColor(obj);
+
+            Application.Current.MainPage = new QrReaderPage();
         }
 
         /// <summary>
@@ -272,6 +284,11 @@ namespace Regiotran.ViewModels
             UpdateSelectedItemColor(obj);
         }
 
+        private void LogOffCommandClicked(object obj)
+        {
+            Settings.GeneralSettings = null;
+            Application.Current.MainPage = new LoginPage();
+        }
         #endregion
     }
 }

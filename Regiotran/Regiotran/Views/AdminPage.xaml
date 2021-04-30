@@ -80,8 +80,7 @@
                         FontSize="14"
                         HorizontalOptions="Start"
                         Style="{StaticResource TitleLabelStyle}"
-                        Text="Escanear Tiquete"
-                        TextColor="{DynamicResource Gray-Black}" />
+                        Text="Escanear Tiquete"/>
 
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding HomeCommand}" CommandParameter="{x:Reference HomeGrid}" />
@@ -110,8 +109,7 @@
                         FontSize="14"
                         HorizontalOptions="Start"
                         Style="{StaticResource TitleLabelStyle}"
-                        Text="Generar Tiquete"
-                        TextColor="{DynamicResource Gray-Black}" />
+                        Text="Generar Tiquete"/>
 
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding HomeCommand}" CommandParameter="{x:Reference HomeGrid}" />
@@ -208,7 +206,31 @@
 
                 <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
 
-                
+                <Grid
+                    x:Name="LogOffGrid"
+                    BackgroundColor="{DynamicResource Gray-Bg}"
+                    ColumnDefinitions="Auto, *">
+
+                    <Label
+                        Grid.Column="0"
+                        helper:RTLHelper.Margin="16, 0, 8, 0"
+                        Style="{StaticResource IconLabelStyle}"
+                        Text="{StaticResource Notification}" 
+                        TextColor="{StaticResource PrimaryColor}"/>
+
+                    <Label
+                        Grid.Column="1"
+                        Margin="0,14"
+                        FontSize="14"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource TitleLabelStyle}"
+                        Text="Cerrar sesion" />
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LogOffCommandClicked}" CommandParameter="{x:Reference ActivityGrid}" />
+                    </Grid.GestureRecognizers>
+
+                </Grid>
 
                 <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
 

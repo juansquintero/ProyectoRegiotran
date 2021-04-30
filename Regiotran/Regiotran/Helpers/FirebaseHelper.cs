@@ -24,7 +24,8 @@ namespace Regiotran.Helpers
                     Id = item.Object.Id,
                     Number = item.Object.Number,
                     Password = item.Object.Password,
-                    Tickets = item.Object.Tickets
+                    Tickets = item.Object.Tickets,
+                    Rol = item.Object.Rol
                 }).ToList();
         }
 
@@ -71,6 +72,18 @@ namespace Regiotran.Helpers
                 .Child(ChildName)
                 .Child(toUpdatePerson.Key)
                 .PutAsync(new Login() { Id = personId, Name = name, Number = phone });
+        }
+
+        public async Task AddTicket(string number, string ticket)
+        {
+            var toUpdatePerson = (await firebase
+                .Child(ChildName)
+                .OnceAsync<Login>()).FirstOrDefault(a => a.Object.Number == number);
+
+            await firebase
+                .Child(ChildName)
+                .Child(toUpdatePerson.Key)
+                .PutAsync(new Login() { Number = number, Tickets = ticket });
         }
 
         public async Task DeletePerson(Guid personId)

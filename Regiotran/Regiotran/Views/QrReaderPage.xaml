@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Regiotran.Views.QrReaderPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:svg="clr-namespace:Regiotran.Controls"
+    xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+    Title="Lector de codigo"
+    BackgroundColor="{DynamicResource Gray-100}"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <Grid>
+            <button:SfButton
+                Margin="8"
+                Command="{Binding BackButtonCommand}"
+                FontSize="20"
+                HorizontalOptions="End"
+                Style="{StaticResource IconButtonStyle}"
+                Text="{StaticResource Close}"
+                VerticalOptions="Start" />
+
+            <ScrollView HorizontalOptions="Center" VerticalOptions="Center">
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Spacing="0"
+                    VerticalOptions="Center">
+
+                    <!--  Payment status image  -->
+                    <zxing:ZXingScannerView x:Name="scanView"
+                                        OnScanResult="scanView_OnScanResult"
+                                        IsScanning="True"
+                                        WidthRequest="300"
+                                        HeightRequest="300"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="CenterAndExpand"/>
+
+                    <!--  Payment status label  -->
+                    <Label
+                        Margin="0,40,0,0"
+                        FontSize="20"
+                        LineHeight="{OnPlatform Android=1.25,
+                                                Default=-1}"
+                        Style="{StaticResource TitleLabelStyle}"
+                        Text="LECTOR DE CODIGOS" />
+
+                    <!--  Payment description label  -->                    
+
+                    <button:SfButton
+                        Margin="0,24"
+                        x:Name="QR_Read"
+                        Command="{Binding MakePaymentClicked}"
+                        Style="{StaticResource GradientButtonStyle}"
+                        Text="LEER CODIGO"
+                        VerticalOptions="Start"
+                        WidthRequest="245" />
+
+                </StackLayout>
+            </ScrollView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
