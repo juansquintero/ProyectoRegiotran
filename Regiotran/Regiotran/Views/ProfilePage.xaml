@@ -24,7 +24,7 @@
                     <controls:TitleView.LeadingView>
                         <buttons:SfButton
                             x:Name="backButton"
-                            Command="{Binding BackButton, Source={x:Reference profilePage}}"
+                            Command="{Binding BackButtonClicked, Source={x:Reference profilePage}}"
                             CommandParameter="{x:Reference backButton}"
                             Style="{StaticResource IconButtonStyle}"
                             Text="{StaticResource Back}" />

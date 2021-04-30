@@ -37,6 +37,7 @@ namespace Regiotran.ViewModels
         private Command activityCommand;
 
         private Command profileCommand;
+        
         private Command logOffCommand;
 
         #endregion
@@ -186,7 +187,7 @@ namespace Regiotran.ViewModels
             }
         }
 
-        public Command LogOff
+        public Command LogOffCommand
         {
             get
             {
@@ -286,7 +287,8 @@ namespace Regiotran.ViewModels
 
         private void LogOffCommandClicked(object obj)
         {
-            Settings.GeneralSettings = null;
+            //Settings.GeneralSettings = null;
+            UpdateSelectedItemColor(obj);
             Application.Current.MainPage = new LoginPage();
         }
         #endregion

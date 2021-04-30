@@ -227,7 +227,7 @@
                         Text="Cerrar sesion" />
 
                     <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding LogOffCommand}" CommandParameter="{x:Reference ActivityGrid}" />
+                        <TapGestureRecognizer Command="{Binding LogOffCommandClicked}" CommandParameter="{x:Reference ActivityGrid}" />
                     </Grid.GestureRecognizers>
 
                 </Grid>

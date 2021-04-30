@@ -105,9 +105,13 @@ namespace Regiotran.ViewModels
             Application.Current.MainPage = new QRMakerPage();
         }
 
-        private void BackButtonClicked(object obj)
+        private async void BackButtonClicked(object obj)
         {
-            Settings.GeneralSettings = null;
+            //Settings.GeneralSettings = null;
+            Application.Current.Resources.TryGetValue("Gray-100", out var retVal);
+            (obj as Grid).BackgroundColor = (Color)retVal;
+            await Task.Delay(100).ConfigureAwait(true);
+            (obj as Grid).BackgroundColor = Color.Transparent;
             Application.Current.MainPage = new LoginPage();
         }
         #endregion
