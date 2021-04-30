@@ -124,9 +124,7 @@ namespace Regiotran.ViewModels
         /// </summary>
         private void TrackOrderClicked(object obj)
         {
-            // Do something
-
-            
+            Application.Current.MainPage = new AdminPage();            
         }
 
         /// <summary>

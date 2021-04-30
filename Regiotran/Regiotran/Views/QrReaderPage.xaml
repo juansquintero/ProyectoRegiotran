@@ -31,8 +31,8 @@
                     <zxing:ZXingScannerView x:Name="scanView"
                                         OnScanResult="scanView_OnScanResult"
                                         IsScanning="True"
-                                        WidthRequest="300"
-                                        HeightRequest="300"
+                                        WidthRequest="270"
+                                        HeightRequest="350"
                                         VerticalOptions="CenterAndExpand"
                                         HorizontalOptions="CenterAndExpand"/>
 
@@ -52,7 +52,7 @@
                         x:Name="QR_Read"
                         Command="{Binding MakePaymentClicked}"
                         Style="{StaticResource GradientButtonStyle}"
-                        Text="LEER CODIGO"
+                        Text="LISTO"
                         VerticalOptions="Start"
                         WidthRequest="245" />
 

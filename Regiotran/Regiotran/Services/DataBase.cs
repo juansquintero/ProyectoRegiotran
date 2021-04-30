@@ -31,7 +31,7 @@ namespace Regiotran.Services
                 Name = name,                
                 Number = number,
                 Password = password,
-                Tickets = "0"
+                Tickets = 0
             };
             var id = await db.InsertAsync(database);
         }
