@@ -16,7 +16,8 @@ namespace Regiotran
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new OnBoardingAnimationPage());
+            //MainPage = new NavigationPage(new OnBoardingAnimationPage());
+            MainPage = new NavigationPage(new AdminPage());
         }
 
         protected override void OnStart()

@@ -81,7 +81,7 @@
                         HorizontalOptions="Start"
                         Style="{StaticResource TitleLabelStyle}"
                         Text="Escanear Tiquete"
-                        TextColor="{DynamicResource Gray-Black}" />
+                        TextColor="{DynamicResource Gray-White}" />
 
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding HomeCommand}" CommandParameter="{x:Reference HomeGrid}" />
@@ -111,10 +111,10 @@
                         HorizontalOptions="Start"
                         Style="{StaticResource TitleLabelStyle}"
                         Text="Generar Tiquete"
-                        TextColor="{DynamicResource Gray-Black}" />
+                        TextColor="{DynamicResource Gray-White}" />
 
                     <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding HomeCommand}" CommandParameter="{x:Reference HomeGrid}" />
+                        <TapGestureRecognizer Command="{Binding HomeCommand}" CommandParameter="{x:Reference HomeGrid2}" />
                     </Grid.GestureRecognizers>
 
                 </Grid>
