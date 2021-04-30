@@ -181,13 +181,13 @@ namespace Regiotran.ViewModels
                 {
                     if (AdminCode.Value == null || AdminCode.Value != "nimda")
                     {
-                        await fireBaseHelper.AddPerson(Number.Value, Name.Value, Password.Item1.ToString(), "0", "0");
+                        await fireBaseHelper.AddPerson(Number.Value, Name.Value, Password.Item1.ToString(), "0", "1");
                         await Application.Current.MainPage.DisplayAlert("Exito", "El usuario ha sido registrado", "OK");
                         Application.Current.MainPage = new LoginPage();
                     }
                     else if (AdminCode.Value == "nimda")
                     {
-                        await fireBaseHelper.AddPerson(Number.Value, Name.Value, Password.Item1.ToString(), "0", "1");
+                        await fireBaseHelper.AddPerson(Number.Value, Name.Value, Password.Item1.ToString(), "0", "0");
                         await Application.Current.MainPage.DisplayAlert("Exito", "El usuario ha sido registrado", "OK");
                         Application.Current.MainPage = new LoginPage();
                     }                                                

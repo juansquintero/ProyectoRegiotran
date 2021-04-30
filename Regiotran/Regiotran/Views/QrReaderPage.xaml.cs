@@ -33,9 +33,10 @@ namespace Regiotran.Views
         {
             Device.BeginInvokeOnMainThread(async () =>
             {
-                await DisplayAlert("Scanned result", "The barcode's text is " + result.Text + ". The barcode's format is " + result.BarcodeFormat, "OK");
+                await DisplayAlert("Resultado", "The barcode's text is " + result.Text, "OK");
                 var ticketData = JsonConvert.DeserializeObject<Login>(result.Text);
-                await fireBaseHelper.AddTicket(ticketData.Number, ticketData.Tickets);
+                var userData = await fireBaseHelper.GetNumber(ticketData.Number);
+                await fireBaseHelper.AddTicket(userData.Id, userData.Name, userData.Number, userData.Password, userData.Rol, userData.Tickets);
             });                        
         }
     }

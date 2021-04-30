@@ -31,7 +31,7 @@
                     <zxing:ZXingScannerView x:Name="scanView"
                                         OnScanResult="scanView_OnScanResult"
                                         IsScanning="True"
-                                        WidthRequest="300"
+                                        WidthRequest="500"
                                         HeightRequest="300"
                                         VerticalOptions="CenterAndExpand"
                                         HorizontalOptions="CenterAndExpand"/>
