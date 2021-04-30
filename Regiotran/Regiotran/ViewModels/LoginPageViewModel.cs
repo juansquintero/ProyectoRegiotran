@@ -127,10 +127,10 @@ namespace Regiotran.ViewModels
             if (this.AreFieldsValid())
             {
                 var user = await fireBaseHelper.Login(Number.Value, Password.Value); 
-                if (user != null && user.Rol != "nimda")
+                if (user != null && user.Rol == "1")
                 {
                     //await DisplayAlert("Error", "Ya existe este numero registrado", "OK");
-                    await Application.Current.MainPage.DisplayAlert("Bienvenido", " " , "OK");
+                    await Application.Current.MainPage.DisplayAlert("Bienvenido", "Usuario" , "OK");
                     
                     Login data = new Login
                     {
@@ -143,11 +143,11 @@ namespace Regiotran.ViewModels
                     };
                     string stringData = JsonConvert.SerializeObject(data);
                     Settings.GeneralSettings = stringData;
-                    Application.Current.MainPage = new AdminPage();
+                    Application.Current.MainPage = new ProfilePage();
                 }
-                else if (user != null && user.Rol == "nimda" )
+                else if (user != null && user.Rol == "0" )
                 {
-                    await Application.Current.MainPage.DisplayAlert("Bienvenido", " ", "OK");
+                    await Application.Current.MainPage.DisplayAlert("Bienvenido", "Administrador", "OK");
 
                     Login data = new Login
                     {
@@ -167,7 +167,7 @@ namespace Regiotran.ViewModels
                     await Application.Current.MainPage.DisplayAlert("Error", "Este ususario no esta registrado", "OK");
                     Application.Current.MainPage = new LoginPage();
                 }
-                await fireBaseHelper.Login(Number.Value, Password.Value);                
+                //await fireBaseHelper.Login(Number.Value, Password.Value);                
             }
         }
 
@@ -186,7 +186,7 @@ namespace Regiotran.ViewModels
         /// <param name="obj">The Object</param>
         private void ForgotPasswordClicked(object obj)
         {
-            Application.Current.MainPage = new ForgotPasswordPage();
+            
         }
 
         /// <summary>

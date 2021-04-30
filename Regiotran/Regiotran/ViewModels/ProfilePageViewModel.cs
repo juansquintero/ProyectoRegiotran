@@ -29,6 +29,7 @@ namespace Regiotran.ViewModels
             this.AvailableCommand = new Command(this.AvailableStatusClicked);
             this.NotificationCommand = new Command(this.NotificationOptionClicked);
             this.QRCommand = new Command(this.QRCommandClicked);
+            this.BackButton = new Command(this.BackButtonClicked);
             Login = new Login
             {
                 Name = data.Name,
@@ -57,7 +58,7 @@ namespace Regiotran.ViewModels
         /// </summary>
         public Command NotificationCommand { get; set; }
         public Command QRCommand { get; set; }
-
+        public Command BackButton { get; set; }
         #endregion
 
         #region Methods            
@@ -102,6 +103,12 @@ namespace Regiotran.ViewModels
             await Task.Delay(100).ConfigureAwait(true);
             (obj as Grid).BackgroundColor = Color.Transparent;
             Application.Current.MainPage = new QRMakerPage();
+        }
+
+        private void BackButtonClicked(object obj)
+        {
+            Settings.GeneralSettings = null;
+            Application.Current.MainPage = new LoginPage();
         }
         #endregion
     }

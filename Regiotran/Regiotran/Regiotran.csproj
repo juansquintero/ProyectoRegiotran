@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -13,6 +13,8 @@
   <ItemGroup>
     <None Remove="Data\errorAndEmpty.json" />
     <None Remove="Data\profile.json" />
+    <None Remove="Data\transaction.json" />
+    <None Remove="Images\PaymentSuccess.svg" />
     <None Remove="Images\SomethingWentWrong.svg" />
     <None Remove="Resources\Fonts\Montserrat-Bold.ttf" />
     <None Remove="Resources\Fonts\Montserrat-Medium.ttf" />
@@ -24,6 +26,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Data\errorAndEmpty.json" />
     <EmbeddedResource Include="Data\profile.json" />
+    <EmbeddedResource Include="Data\transaction.json" />
+    <EmbeddedResource Include="Images\PaymentSuccess.svg" />
     <EmbeddedResource Include="Images\SomethingWentWrong.svg" />
     <EmbeddedResource Include="Resources\Fonts\Montserrat-Bold.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Montserrat-Medium.ttf" />
@@ -132,9 +136,6 @@
     <EmbeddedResource Update="Views\AdminPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ForgotPasswordPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\HelpPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -156,6 +157,9 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\QRMakerPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\QrReaderPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
 
