@@ -10,6 +10,6 @@ namespace Regiotran.Models
         public string Number { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
-        public string Tickets { get; set; }
+        public int Tickets { get; set; }
     }
 }

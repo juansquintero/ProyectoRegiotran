@@ -35,8 +35,19 @@ namespace Regiotran.Views
             {
                 await DisplayAlert("Resultado", "The barcode's text is " + result.Text, "OK");
                 var ticketData = JsonConvert.DeserializeObject<Login>(result.Text);
-                var userData = await fireBaseHelper.GetNumber(ticketData.Number);
-                await fireBaseHelper.AddTicket(userData.Id, userData.Name, userData.Number, userData.Password, userData.Rol, userData.Tickets);
+                
+                if (ticketData.Number != null)
+                {
+                    var userData = await fireBaseHelper.GetNumber(ticketData.Number);
+                    var sumTickets = userData.Tickets + 1;
+                    await fireBaseHelper.AddTicket(userData.Id, userData.Name, userData.Number, userData.Password, userData.Rol, sumTickets);
+                    await DisplayAlert("Exito", "El tiquete ha sido cobrado ", "OK");
+                    Application.Current.MainPage = new AdminPage();
+                }
+                else
+                {
+                    await DisplayAlert("Error", "El usuario no existe o el codigo esta corrupto " + result.Text, "OK");
+                }
             });                        
         }
     }
