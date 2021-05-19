@@ -44,13 +44,6 @@
       "addressType": "Home",
       "address": "410 Terry Ave N, USA",
       "mobileNumber": "+1-202-555-0101"
-    },
-    {
-      "customerId": 1,
-      "customerName": "John Doe",
-      "addressType": "Office",
-      "address": "388 Fort Worth, Texas, United States",
-      "mobileNumber": "+1-356-636-8572"
     }
   ],
   "cartDetails": [
@@ -75,35 +68,21 @@
   ],
   "paymentModes": [
     {
-      "paymentMode": "Goldman Sachs Bank Credit Card",
+      "paymentMode": "Tarjeta de Credito",
       "cardNumber": "48** **** **** 9876",
       "cardTypeIcon": "Card.png"
     },
     {
-      "paymentMode": "Wells Fargo Bank Credit Card"
+      "paymentMode": "PSE"
     },
     {
-      "paymentMode": "Debit / Credit Card"
-    },
-    {
-      "paymentMode": "NetBanking"
-    },
-    {
-      "paymentMode": "Cash on Delivery"
-    },
-    {
-      "paymentMode": "Wallet"
+      "paymentMode": "Medio digital"
     }
   ],
   "priceDetails": [
     {
-      "actualprice": 245,
-      "discountpercent": 30,
-      "totalquantity": 1
-    },
-    {
-      "actualprice": 245,
-      "discountpercent": 30,
+      "actualprice": 1500,
+      "discountpercent": 0,
       "totalquantity": 1
     }
   ]

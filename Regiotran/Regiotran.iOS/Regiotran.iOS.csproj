@@ -186,4 +186,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\Card.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Visa.png" />
+  </ItemGroup>
 </Project>

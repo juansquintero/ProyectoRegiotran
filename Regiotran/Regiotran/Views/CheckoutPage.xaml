@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Regiotran.Views.CheckoutPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:controls="clr-namespace:Regiotran.Controls"
+    xmlns:local="clr-namespace:Regiotran.Views"
+    x:Name="checkoutPage"
+    Title="checkout"
+    BackgroundColor="{DynamicResource Gray-100}"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.ControlTemplate>
+        <ControlTemplate>
+            <StackLayout Spacing="0">
+
+                <!--  Title View  -->
+                <controls:TitleView Title="Recarga">
+                    <controls:TitleView.LeadingView>
+                        <buttons:SfButton
+                            x:Name="backButton"
+                            Command="{Binding BindingContext.BackButtonCommand, Source={x:Reference checkoutPage}}"
+                            CommandParameter="{x:Reference backButton}"
+                            Style="{StaticResource IconButtonStyle}"
+                            Text="{StaticResource Back}" />
+                    </controls:TitleView.LeadingView>
+                </controls:TitleView>
+
+                <ContentPresenter />
+
+            </StackLayout>
+        </ControlTemplate>
+    </ContentPage.ControlTemplate>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid
+                Padding="{OnIdiom Default='0',
+                                  Desktop='16,16,16,0'}"
+                ColumnSpacing="0"
+                RowDefinitions="Auto, Auto, Auto"
+                RowSpacing="16">
+
+                <!--  ListView for Delivery  -->
+                <local:DeliveryView Margin="{OnIdiom Phone='0,16,0,0', Tablet='0,24,0,0', Desktop=0}" />
+
+                <!--  ListView for Payment  -->
+                <local:PaymentView Grid.Row="1" Margin="{OnIdiom Default=0, Tablet='0,24,0,0'}" />
+
+                <!--  Price Details  -->
+                <local:PriceDetailView Grid.Row="2" ActionText="PAGAR AHORA" />
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

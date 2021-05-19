@@ -34,6 +34,7 @@ namespace Regiotran.ViewModels
             {
                 Name = data.Name,
                 Number = data.Number,
+                Tickets = data.Tickets,
             };
         }
 
@@ -94,6 +95,7 @@ namespace Regiotran.ViewModels
             (obj as Grid).BackgroundColor = (Color)retVal;
             await Task.Delay(100).ConfigureAwait(true);
             (obj as Grid).BackgroundColor = Color.Transparent;
+            Application.Current.MainPage = new CheckoutPage();
         }
 
         private async void QRCommandClicked(object obj)

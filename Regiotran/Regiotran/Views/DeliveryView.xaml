@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="Regiotran.Views.DeliveryView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:helper="clr-namespace:Regiotran.Helpers"
+    BackgroundColor="{DynamicResource Gray-Bg}">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <buttons:SfRadioGroupKey x:Key="DeliveryAddressGroup" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <StackLayout Spacing="0">
+
+        <!--  Header  -->
+        <Grid
+            Padding="0,16,0,0"
+            BackgroundColor="{DynamicResource Gray-Bg}"
+            ColumnDefinitions="*, *"
+            RowDefinitions="Auto, 1, *"
+            RowSpacing="16">
+
+            <Label
+                Grid.Column="0"
+                Margin="16,0"
+                HorizontalOptions="Start"
+                LineHeight="{OnPlatform Android=1.25,
+                                        Default=-1}"
+                Style="{StaticResource TitleLabelStyle}"
+                Text="{OnIdiom Default='Total a pagar',
+                               Phone='Total'}" />
+
+            <!--  Total Price Label  -->
+            <Label
+                Grid.Column="1"
+                Margin="16,0"
+                HorizontalOptions="EndAndExpand"
+                HorizontalTextAlignment="End"
+                IsVisible="{OnIdiom Default=True,
+                                    Phone=False}"
+                Style="{StaticResource TitleLabelStyle}"
+                Text="1500" />
+
+            <!--  Separator  -->
+            <BoxView
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                HeightRequest="1"
+                Style="{StaticResource HorizontalSeparatorStyle}" />
+
+        </Grid>
+
+    </StackLayout>
+
+</ContentView>

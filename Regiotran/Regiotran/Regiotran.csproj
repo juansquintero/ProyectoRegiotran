@@ -14,6 +14,7 @@
     <None Remove="Data\errorAndEmpty.json" />
     <None Remove="Data\profile.json" />
     <None Remove="Data\transaction.json" />
+    <None Remove="Images\PaymentFailure.svg" />
     <None Remove="Images\PaymentSuccess.svg" />
     <None Remove="Images\SomethingWentWrong.svg" />
     <None Remove="Resources\Fonts\Montserrat-Bold.ttf" />
@@ -27,6 +28,7 @@
     <EmbeddedResource Include="Data\errorAndEmpty.json" />
     <EmbeddedResource Include="Data\profile.json" />
     <EmbeddedResource Include="Data\transaction.json" />
+    <EmbeddedResource Include="Images\PaymentFailure.svg" />
     <EmbeddedResource Include="Images\PaymentSuccess.svg" />
     <EmbeddedResource Include="Images\SomethingWentWrong.svg" />
     <EmbeddedResource Include="Resources\Fonts\Montserrat-Bold.ttf" />
@@ -133,7 +135,19 @@
     <EmbeddedResource Update="Themes\LightTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\AddCardPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\AdminPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CardPaymentPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CheckoutPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DeliveryView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HelpPage.xaml">
@@ -146,6 +160,18 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\OnBoardingAnimationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PaymentFailurePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PaymentSuccessPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PaymentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PriceDetailView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
 
@@ -162,6 +188,9 @@
     <EmbeddedResource Update="Views\QrReaderPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\SavedCardPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
 
     <EmbeddedResource Update="Views\SettingsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -170,6 +199,9 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SimpleNumberEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\CardDisplayView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\WalkthroughItemPage.xaml">

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="Regiotran.Views.PriceDetailView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    x:Name="This">
+
+    <StackLayout>
+
+        <Grid
+            BackgroundColor="{DynamicResource Gray-Bg}"
+            ColumnDefinitions="*, Auto"
+            RowDefinitions="Auto, 1, Auto, Auto, Auto, Auto, 1, Auto"
+            RowSpacing="4"
+            VerticalOptions="Start">
+
+            <!--  Header  -->
+            <Label
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                Margin="16,16,16,12"
+                HorizontalOptions="Start"
+                LineHeight="{OnPlatform Android=1.25,
+                                        Default=-1}"
+                Style="{StaticResource TitleLabelStyle}"
+                Text="Detalles del pago" />
+            <!--  Separator  -->
+            <BoxView
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                HeightRequest="1"
+                Style="{StaticResource HorizontalSeparatorStyle}" />
+                                
+            <Label
+                Grid.Row="7"
+                Margin="16,12,16,16"
+                HorizontalOptions="Start"
+                LineHeight="{OnPlatform Android=1.25,
+                                        Default=-1}"
+                Style="{StaticResource TitleLabelStyle}"
+                Text="Total" />
+            <Label
+                Grid.Row="7"
+                Grid.Column="1"
+                Margin="16,12,16,16"
+                HorizontalOptions="EndAndExpand"
+                HorizontalTextAlignment="End"
+                LineHeight="{OnPlatform Android=1.25,
+                                        Default=-1}"
+                Style="{StaticResource TitleLabelStyle}"
+                Text="$ 1500"/>
+
+        </Grid>
+
+        <!--  Place order button  -->
+        <buttons:SfButton
+            Margin="{OnIdiom Default=24,
+                             Tablet='24,24,16,24'}"
+            Command="{Binding PlaceOrderCommand}"
+            HorizontalOptions="{OnIdiom Default=FillAndExpand,
+                                        Phone=CenterAndExpand,
+                                        Tablet=End}"
+            Style="{StaticResource GradientButtonStyle}"
+            Text="{Binding ActionText, Source={x:Reference This}}"
+            WidthRequest="{OnIdiom Tablet=240,
+                                   Phone=240,
+                                   Default=-1}" />
+
+    </StackLayout>
+
+</ContentView>
