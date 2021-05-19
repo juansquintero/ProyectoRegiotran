@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 using ZXing;
+using ConceptDevelopment.Net.Cryptography;
 
 namespace Regiotran.Views
 {
@@ -18,6 +19,7 @@ namespace Regiotran.Views
     {
         readonly FirebaseHelper fireBaseHelper = new FirebaseHelper();
         public Login Login { get; set; }
+        public string Res {get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="QrReaderPage" /> class.
@@ -33,22 +35,26 @@ namespace Regiotran.Views
         {
             Device.BeginInvokeOnMainThread(async () =>
             {
-                await DisplayAlert("Resultado", "The barcode's text is " + result.Text, "OK");
-                var ticketData = JsonConvert.DeserializeObject<Login>(result.Text);
                 
-                if (ticketData.Number != null)
+                var ps = new PontifexSolitaire("patitofeo");
+                var Ras = ps.Decrypt(result.Text).Pad5();
+                //await DisplayAlert("Resultado", "The barcode's text is " + Ras, "OK");
+                var user = await fireBaseHelper.GetById(Ras);
+
+                if (user != null && user.Tickets >= 1)
                 {
-                    var userData = await fireBaseHelper.GetNumber(ticketData.Number);
-                    var sumTickets = userData.Tickets + 1;
-                    await fireBaseHelper.AddTicket(userData.Id, userData.Name, userData.Number, userData.Password, userData.Rol, sumTickets);
-                    await DisplayAlert("Exito", "El tiquete ha sido cobrado ", "OK");
-                    Application.Current.MainPage = new AdminPage();
+                    var sumTickets = user.Tickets - 1;
+                    await fireBaseHelper.AddTicket(user.Id, user.Name, user.Number, user.Password, user.Rol, sumTickets);
+                    //await DisplayAlert("Exito", "El tiquete ha sido cobrado ", "OK");
+                    //Application.Current.MainPage = new AdminPage();
+                    await Navigation.PushModalAsync(new AdminPage());
                 }
                 else
                 {
-                    await DisplayAlert("Error", "El usuario no existe o el codigo esta corrupto " + result.Text, "OK");
+                    await DisplayAlert("Error", "El usuario no existe o el codigo esta corrupto o no tiene tiquetes disponibles", "OK");
+                    await Navigation.PushModalAsync(new AdminPage());
                 }
-            });                        
+            });            
         }
     }
 }

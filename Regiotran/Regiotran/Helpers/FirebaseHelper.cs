@@ -14,6 +14,19 @@ namespace Regiotran.Helpers
 
         readonly FirebaseClient firebase = new FirebaseClient("https://regiotram-67590-default-rtdb.firebaseio.com/");
 
+        public static string IdGen()
+        {
+            Random ran = new Random();
+            String b = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            int le = 5;
+            String random = "";
+            for (int i = 0; i < le; i++)
+            {
+                int a = ran.Next(26);
+                random = random + b.ElementAt(a);
+            }
+            return random;
+        }
         public async Task<List<Login>> GetAllPersons()
         {
             return (await firebase
@@ -41,17 +54,17 @@ namespace Regiotran.Helpers
         {
             await firebase
                 .Child(ChildName)
-                .PostAsync(new Login() { Id = Guid.NewGuid(), Number = number, Name = name, Password = password, Tickets = tickets, Rol = admincode });
+                .PostAsync(new Login() { Id = IdGen(), Number = number, Name = name, Password = password, Tickets = tickets, Rol = admincode });
         }
 
-        //public async Task<Login> GetPerson(Guid id)
-        //{
-        //    var allPersons = await GetAllPersons();
-        //    await firebase
-        //        .Child(ChildName)
-        //        .OnceAsync<Login>();
-        //    return allPersons.FirstOrDefault(a => a.Id == id);
-        //}
+        public async Task<Login> GetById(string id)
+        {
+            var allPersons = await GetAllPersons();
+            await firebase
+                .Child(ChildName)
+                .OnceAsync<Login>();
+            return allPersons.FirstOrDefault(a => a.Id == id);
+        }
 
         public async Task<Login> GetNumber(string number)
         {
@@ -62,7 +75,7 @@ namespace Regiotran.Helpers
             return allPersons.FirstOrDefault(a => a.Number == number);
         }
 
-        public async Task UpdatePerson(Guid personId, string name, string phone)
+        public async Task UpdatePerson(string personId, string name, string phone)
         {
             var toUpdatePerson = (await firebase
                 .Child(ChildName)
@@ -74,7 +87,7 @@ namespace Regiotran.Helpers
                 .PutAsync(new Login() { Id = personId, Name = name, Number = phone });
         }
 
-        public async Task AddTicket(Guid personid, string name, string number, string password, string rol, int ticket)
+        public async Task AddTicket(string personid, string name, string number, string password, string rol, int ticket)
         {
             var toUpdatePerson = (await firebase
                 .Child(ChildName)
@@ -86,7 +99,7 @@ namespace Regiotran.Helpers
                 .PutAsync(new Login() { Id = personid, Name = name, Number = number, Password = password, Rol = rol, Tickets = ticket });
         }
 
-        public async Task DeletePerson(Guid personId)
+        public async Task DeletePerson(string personId)
         {
             var toDeletePerson = (await firebase
                 .Child(ChildName)
