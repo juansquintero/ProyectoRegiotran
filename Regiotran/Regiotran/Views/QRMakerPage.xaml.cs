@@ -1,4 +1,5 @@
-﻿using CryptoForms;
+﻿using ConceptDevelopment.Net.Cryptography;
+using CryptoForms;
 using Newtonsoft.Json;
 using Regiotran.Helpers;
 using Regiotran.Models;
@@ -45,9 +46,9 @@ namespace Regiotran.Views
             };
 
             qrData = JsonConvert.SerializeObject(qr);
-            var pass = "patitofeo";
-            var salt = Crypto.CreateSalt(16);
-            var bytes1 = Crypto.EncryptAes(qrData, pass, salt);
+
+            var ps = new PontifexSolitaire("patitofeo");
+            qrDataCrypt = ps.Encrypt(data.Id).Pad5();
 
         }
 
@@ -61,7 +62,7 @@ namespace Regiotran.Views
                 Height = 300,
                 Width = 300
             };
-            this.QRCodeView.BarcodeValue = qrData;
+            this.QRCodeView.BarcodeValue = qrDataCrypt;
         }
     }
 }
