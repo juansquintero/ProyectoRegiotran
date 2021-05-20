@@ -24,7 +24,7 @@ namespace Regiotran.ViewModels
         public Login Login { get; set; }        
         Login data = JsonConvert.DeserializeObject<Login>(Settings.GeneralSettings);
         public ProfilePageViewModel()
-        {
+        {          
             this.EditCommand = new Command(this.EditButtonClicked);
             this.AvailableCommand = new Command(this.AvailableStatusClicked);
             this.NotificationCommand = new Command(this.NotificationOptionClicked);
