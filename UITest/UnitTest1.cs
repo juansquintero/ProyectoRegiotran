@@ -2,7 +2,6 @@ using FluentAssertions;
 using FluentAssertions.Execution;
 using NUnit.Framework;
 using Regiotran.ViewModels;
-using 
 
 namespace UITest
 {
