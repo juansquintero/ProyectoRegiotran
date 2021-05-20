@@ -125,6 +125,14 @@
                         FontFamily="Montserrat-Medium"
                         HorizontalOptions="Start"
                         Style="{StaticResource TitleLabelStyle}"
+                        Text="Tiquetes: "
+                        VerticalOptions="Center" />
+
+                    <Label
+                        Grid.Column="2"
+                        FontFamily="Montserrat-Medium"
+                        HorizontalOptions="Start"
+                        Style="{StaticResource TitleLabelStyle}"
                         Text="{Binding Login.Tickets}"
                         VerticalOptions="Center" />
 
