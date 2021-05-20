@@ -197,14 +197,14 @@ namespace Regiotran.ViewModels
         /// Invoked when the Place order button is clicked.
         /// </summary>
         /// <param name="obj">The Object</param>
-        private async void PlaceOrderClicked(object obj)
+        private void PlaceOrderClicked(object obj)
         {
-            Login data = JsonConvert.DeserializeObject<Login>(Settings.GeneralSettings);
-            finder = data.Id;
-            var user = await fireBaseHelper.GetById(finder);
-            var sum = user.Tickets + 1;
-            await fireBaseHelper.AddTicket(user.Id, user.Name, user.Number, user.Password, user.Rol, sum);
-            Application.Current.MainPage = new ProfilePage();
+            //Login data = JsonConvert.DeserializeObject<Login>(Settings.GeneralSettings);
+            //finder = data.Id;
+            //var user = await fireBaseHelper.GetById(finder);
+            //var sum = user.Tickets + 1;
+            //await fireBaseHelper.AddTicket(user.Id, user.Name, user.Number, user.Password, user.Rol, sum);
+            Application.Current.MainPage = new PaymentSuccessPage();
         }
 
         /// <summary>

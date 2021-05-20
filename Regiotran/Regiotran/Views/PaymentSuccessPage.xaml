@@ -13,7 +13,7 @@
         <Grid>
             <button:SfButton
                 Margin="8"
-                Command="{Binding BackButtonCommand}"
+                Command="{Binding TrackOrderClicked}"
                 FontSize="20"
                 HorizontalOptions="End"
                 Style="{StaticResource IconButtonStyle}"
@@ -40,7 +40,7 @@
                         LineHeight="{OnPlatform Android=1.25,
                                                 Default=-1}"
                         Style="{StaticResource TitleLabelStyle}"
-                        Text="PAYMENT SUCCESS" />
+                        Text="PAGO EXITOSO" />
 
                     <!--  Payment description label  -->
                     <Label
@@ -49,15 +49,7 @@
                         LineHeight="{OnPlatform Android=1.25,
                                                 Default=-1}"
                         Style="{StaticResource TitleLabelStyle}"
-                        Text="Thank you for your payment. An automated payment receipt will be sent to your registered email." />
-
-                    <button:SfButton
-                        Margin="0,24"
-                        Command="{Binding TrackOrderCommand}"
-                        Style="{StaticResource GradientButtonStyle}"
-                        Text="TRACK YOUR ORDER"
-                        VerticalOptions="Start"
-                        WidthRequest="245" />
+                        Text="Gracias por su pago." />
 
                 </StackLayout>
             </ScrollView>

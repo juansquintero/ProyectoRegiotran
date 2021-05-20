@@ -120,19 +120,19 @@ namespace Regiotran.ViewModels
         /// </summary>
         private void TrackOrderClicked(object obj)
         {
-            // Do something
+            Application.Current.MainPage = new ProfilePage();
         }
 
         /// <summary>
         /// Invoked when make payment button is clicked.
         /// </summary>
-        private async void MakePaymentClicked(object obj)
+        private void MakePaymentClicked(object obj)
         {
-            Login data = JsonConvert.DeserializeObject<Login>(Settings.GeneralSettings);
+            //Login data = JsonConvert.DeserializeObject<Login>(Settings.GeneralSettings);
             //var user = await fireBaseHelper.GetById(data.Id);
-            var sum = data.Tickets + 1;
-            await fireBaseHelper.AddTicket(data.Id, data.Name, data.Number, data.Password, data.Rol, sum);
-            Application.Current.MainPage = new ProfilePage();
+            //var sum = data.Tickets + 1;
+            //await fireBaseHelper.AddTicket(data.Id, data.Name, data.Number, data.Password, data.Rol, sum);
+            //Application.Current.MainPage = new ProfilePage();
         }
 
         #endregion
