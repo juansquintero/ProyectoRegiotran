@@ -34,3 +34,4 @@ Desarrollar un sistema de tiquetes virtuales, utilizando bases de datos y aplica
 ## Imagenes
 
 ![Onboarding](Examples/Screenshot_2021-05-17-21-57-41.png)
+![Ejemplo QR](Examples/Screenshot_2021-05-17-22-01-24.png)
