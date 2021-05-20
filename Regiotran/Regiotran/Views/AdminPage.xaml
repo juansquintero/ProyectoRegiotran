@@ -83,7 +83,7 @@
                         Text="Escanear Tiquete"/>
 
                     <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding HomeCommand}" CommandParameter="{x:Reference HomeGrid}" />
+                        <TapGestureRecognizer Command="{Binding HomeCommand}" CommandParameter="{x:Reference HomeGrid}" />                        
                     </Grid.GestureRecognizers>
 
                 </Grid>

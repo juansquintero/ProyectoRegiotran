@@ -30,6 +30,8 @@ namespace Regiotran.ViewModels
 
         private Command homeCommand;
 
+        private Command home2Command;
+
         private Command interestsCommand;
 
         private Command bookmarkCommand;
@@ -243,6 +245,13 @@ namespace Regiotran.ViewModels
         /// </summary>
         /// <param name="obj">The object</param>
         private void HomeButtonClicked(object obj)
+        {
+            UpdateSelectedItemColor(obj);
+
+            Application.Current.MainPage = new QrReaderPage();
+        }
+
+        private void Home2ButtonClicked(object obj)
         {
             UpdateSelectedItemColor(obj);
 

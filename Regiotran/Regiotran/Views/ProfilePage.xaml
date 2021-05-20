@@ -119,7 +119,7 @@
                     ColumnSpacing="16">
 
                     <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding QRCommand}" CommandParameter="{x:Reference NotificationGrid}" />
+                        <TapGestureRecognizer Command="{Binding QRCommand}" CommandParameter="{x:Reference QRGrid}" />
                     </Grid.GestureRecognizers>
 
                     <Label
