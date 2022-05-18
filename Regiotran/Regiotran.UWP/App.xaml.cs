@@ -1,3 +1,5 @@
+using Syncfusion.XForms.UWP.BadgeView;
+using Syncfusion.XForms.UWP.EffectsView;
 using Syncfusion.XForms.Pickers.UWP;
 using Syncfusion.SfRotator.XForms.UWP;
 using Syncfusion.XForms.UWP.Cards;
@@ -81,6 +83,7 @@ namespace Regiotran.UWP
                     typeof(SfRotatorRenderer).GetTypeInfo().Assembly,
                     typeof(SfDatePickerRenderer).GetTypeInfo().Assembly
                 };
+
                 Xamarin.Forms.Forms.Init(e, assembliesToInclude);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)

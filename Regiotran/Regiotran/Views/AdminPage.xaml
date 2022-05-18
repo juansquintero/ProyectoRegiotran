@@ -141,7 +141,7 @@
                         Text="Editar Usuarios" />
 
                     <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding InterestsCommand}" CommandParameter="{x:Reference InterestsGrid}" />
+                        <TapGestureRecognizer Command="{Binding ProfileCommand}" CommandParameter="{x:Reference InterestsGrid}" />
                     </Grid.GestureRecognizers>
 
                 </Grid>
@@ -231,7 +231,6 @@
                     </Grid.GestureRecognizers>
 
                 </Grid>
-
                 <BoxView Style="{StaticResource HorizontalSeparatorStyle}" />
 
             </StackLayout>

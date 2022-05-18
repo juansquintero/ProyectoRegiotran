@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Regiotran.Views.CartPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:controls="clr-namespace:Regiotran.Controls"
+    xmlns:converter="clr-namespace:Regiotran.Converters"
+    xmlns:local="clr-namespace:Regiotran.Views"
+    xmlns:syncEffectsView="clr-namespace:Syncfusion.XForms.EffectsView;assembly=Syncfusion.Core.XForms"
+    xmlns:template="clr-namespace:Regiotran.Views.Templates"
+    x:Name="cartPage"
+    Title="Cart"
+    BackgroundColor="{DynamicResource Gray-100}"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:DynamicResourceToColorConverter x:Key="DynamicResourceToColorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ControlTemplate>
+        <ControlTemplate>
+            <StackLayout Spacing="0">
+
+                <!--  Title View  -->
+                <controls:TitleView Title="Cart">
+                    <controls:TitleView.LeadingView>
+                        <buttons:SfButton
+                            x:Name="backButton"
+                            Command="{TemplateBinding BindingContext.BackButtonCommand}"
+                            CommandParameter="{x:Reference backButton}"
+                            Style="{StaticResource IconButtonStyle}"
+                            Text="{StaticResource Back}" />
+                    </controls:TitleView.LeadingView>
+                </controls:TitleView>
+
+                <ContentPresenter />
+
+            </StackLayout>
+        </ControlTemplate>
+    </ContentPage.ControlTemplate>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="Id" Text="{Binding Id}" IsReadOnly="True"/>
+            <Entry x:Name="Name" Text="{Binding Name}"/>
+            <Entry x:Name="Number" Text="{Binding Number}"/>
+            <Label x:Name="Rol" Text="{Binding Rol}"/>
+            <Label x:Name="Password" Text="{Binding Password}"/>
+            <Label x:Name="Tickets" Text="{Binding Tickets}"/>
+            <Button Text="Update" Clicked="BtnUpdate"/>
+            <Button Text="Delete" Clicked="BtnDelete"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

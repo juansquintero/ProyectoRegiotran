@@ -176,6 +176,9 @@
     <PackageReference Include="Syncfusion.Xamarin.Core">
       <Version>19.1.0.55</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfBadgeView">
+      <Version>19.1.0.55</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox">
       <Version>19.1.0.55</Version>
     </PackageReference>
