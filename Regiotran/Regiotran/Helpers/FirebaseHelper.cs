@@ -75,7 +75,7 @@ namespace Regiotran.Helpers
             return allPersons.FirstOrDefault(a => a.Number == number);
         }
 
-        public async Task UpdatePerson(string personId, string name, string phone)
+        public async Task UpdatePerson(string personId, string name, string phone, string rol, string password, int tickets)
         {
             var toUpdatePerson = (await firebase
                 .Child(ChildName)
@@ -84,7 +84,7 @@ namespace Regiotran.Helpers
             await firebase
                 .Child(ChildName)
                 .Child(toUpdatePerson.Key)
-                .PutAsync(new Login() { Id = personId, Name = name, Number = phone });
+                .PutAsync(new Login() { Id = personId, Name = name, Number = phone, Rol = rol, Password = password, Tickets = tickets});
         }
 
         public async Task AddTicket(string personid, string name, string number, string password, string rol, int ticket)

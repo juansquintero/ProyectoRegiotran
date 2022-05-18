@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\ecommerce.json" />
     <None Remove="Data\errorAndEmpty.json" />
     <None Remove="Data\profile.json" />
     <None Remove="Data\transaction.json" />
@@ -25,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Data\ecommerce.json" />
     <EmbeddedResource Include="Data\errorAndEmpty.json" />
     <EmbeddedResource Include="Data\profile.json" />
     <EmbeddedResource Include="Data\transaction.json" />
@@ -58,6 +60,7 @@
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="19.1.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.Cards" Version="19.1.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="19.1.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBadgeView" Version="19.1.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="19.1.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.1.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="19.1.0.55" />
@@ -146,6 +149,9 @@
     <EmbeddedResource Update="Views\CardPaymentPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\CartPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\CheckoutPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -206,7 +212,16 @@
     <EmbeddedResource Update="Views\Templates\CardDisplayView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\CartItemListTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Templates\WishlistItemTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\WalkthroughItemPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\WishlistPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

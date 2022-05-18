@@ -10,6 +10,13 @@
     <PackageReference Include="NUnit" Version="3.13.2" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="19.1.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.Cards" Version="19.1.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="19.1.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBadgeView" Version="19.1.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="19.1.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.1.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="19.1.0.55" />
   </ItemGroup>
 
   <ItemGroup>

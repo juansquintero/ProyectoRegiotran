@@ -283,6 +283,7 @@ namespace Regiotran.ViewModels
         private void ProfileButtonClicked(object obj)
         {
             UpdateSelectedItemColor(obj);
+            Application.Current.MainPage = new WishlistPage();
         }
 
         private void LogOffCommandClicked(object obj)
